@@ -67,7 +67,7 @@ export const RegionalSummary = () => {
               <TableRow>
                 <StyledTableCell>Region</StyledTableCell>
                 <StyledTableCell align="right">Tests</StyledTableCell>
-                <StyledTableCell align="right">Cases</StyledTableCell>
+                <StyledTableCell align="right">Infected</StyledTableCell>
                 <StyledTableCell align="right">Active</StyledTableCell>
                 <StyledTableCell align="right">Deaths</StyledTableCell>
                 <StyledTableCell align="right">Recovered</StyledTableCell>

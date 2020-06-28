@@ -85,7 +85,7 @@ export const GlobalSummary = () => {
               }}
             >
               <Typography style={{ textAlign: "center" }}>
-                <b>Cases</b>
+                <b>Infected</b>
               </Typography>
               <Typography style={{ textAlign: "center", fontSize: "13px" }}>
                 <CountUp
