@@ -39,7 +39,7 @@ export const GlobalSummary = () => {
           <b>Updated On:</b> {new Date(globalSummaryData.updated).toString()}
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={2}>
+          <Grid item sm={2} xs={6}>
             <Card
               style={{
                 color: "white",
@@ -58,7 +58,7 @@ export const GlobalSummary = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item sm={2} xs={6}>
             <Card
               style={{
                 color: "white",
@@ -77,7 +77,7 @@ export const GlobalSummary = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item sm={2} xs={6}>
             <Card
               style={{
                 color: "white",
@@ -96,7 +96,7 @@ export const GlobalSummary = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item sm={2} xs={6}>
             <Card
               style={{
                 color: "white",
@@ -115,7 +115,7 @@ export const GlobalSummary = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item sm={2} xs={6}>
             <Card
               style={{
                 color: "white",
@@ -134,7 +134,7 @@ export const GlobalSummary = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item sm={2} xs={6}>
             <Card
               style={{
                 color: "white",
