@@ -57,6 +57,9 @@ export const RegionalSummary = () => {
         <Typography variant="h3" component="h3" style={{ textAlign: "center" }}>
           Regional Summary
         </Typography>
+        <Typography style={{ textAlign: "center" }}>
+          <b>Updated On:</b> {new Date(regionalData[0].updated).toString()}
+        </Typography>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>

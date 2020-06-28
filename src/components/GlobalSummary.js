@@ -22,6 +22,9 @@ export const GlobalSummary = () => {
         <Typography variant="h3" component="h3" style={{ textAlign: "center" }}>
           Global Summary
         </Typography>
+        <Typography style={{ textAlign: "center" }}>
+          <b>Updated On:</b> {new Date(globalSummaryData.updated).toString()}
+        </Typography>
         <Grid container spacing={2}>
           <Grid item xs={2}>
             <Card
