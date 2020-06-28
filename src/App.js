@@ -4,7 +4,7 @@ import { GlobalSituation } from "./components/GlobalSituation";
 
 function App() {
   return (
-    <div>
+    <div style={{ background: "#fafafa" }}>
       <NavBar />
       <GlobalSituation />
     </div>

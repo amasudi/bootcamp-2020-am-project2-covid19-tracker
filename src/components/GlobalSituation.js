@@ -23,11 +23,12 @@ export const GlobalSituation = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <RegionalSummary />
-        </Grid>
-        <Grid item xs={12} sm={6}>
           <GlobalSummary />
         </Grid>
+        <Grid item xs={12} sm={6}>
+          <RegionalSummary />
+        </Grid>
+        <Grid item xs={12} sm={12}></Grid>
       </Grid>
     </div>
   );
