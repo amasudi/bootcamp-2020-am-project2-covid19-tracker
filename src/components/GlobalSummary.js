@@ -21,7 +21,6 @@ export const GlobalSummary = () => {
         "https://disease.sh/v2/historical/all?lastdays=all"
       );
       let data = await response.json();
-      console.log(data);
       setGlobalGraphData(data);
       setLoadingGraphData(false);
     };
@@ -156,7 +155,9 @@ export const GlobalSummary = () => {
           <Grid item xs={12}>
             <Line
               data={{
-                labels: Object.keys(globalGraphData.cases),
+                labels: Object.keys(globalGraphData.cases).map((date) =>
+                  new Date(date).toDateString()
+                ),
                 datasets: [
                   {
                     data: Object.values(globalGraphData.cases),

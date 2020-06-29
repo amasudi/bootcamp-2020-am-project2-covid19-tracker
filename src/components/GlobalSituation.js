@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 
 import { RegionalSummary } from "./RegionalSummary";
 import { GlobalSummary } from "./GlobalSummary";
+import { CountryWiseDetails } from "./CountryWiseDetails";
 
 import coronaLogo from "../covid-logo.png";
 
@@ -28,7 +29,9 @@ export const GlobalSituation = () => {
         <Grid item xs={12} sm={6}>
           <RegionalSummary />
         </Grid>
-        <Grid item xs={12} sm={12}></Grid>
+        <Grid item xs={12} sm={12}>
+          <CountryWiseDetails />
+        </Grid>
       </Grid>
     </div>
   );
