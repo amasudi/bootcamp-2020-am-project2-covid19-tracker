@@ -21,7 +21,6 @@ export const GlobalSituation = () => {
   const { country, handleActions } = useContext(GlobalContext);
   const classes = useStyles();
   const [regionalData, setRegionalData] = useState([]);
-  const [loadingData, setLoadingData] = useState(true);
   const handleChange = (event) => {
     handleChangeCountry(event.target.value);
   };
@@ -34,7 +33,6 @@ export const GlobalSituation = () => {
       let data = await response.json();
       handleActions("SET_REGIONAL", { regionalData: data });
       setRegionalData(data);
-      setLoadingData(false);
     };
     fetchData();
   }, []);

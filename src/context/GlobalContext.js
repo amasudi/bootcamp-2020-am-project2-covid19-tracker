@@ -34,6 +34,7 @@ export const GlobalProvider = ({ children }) => {
           type: type,
           payload: { countryData: transObj.countryData },
         });
+        break;
       default:
     }
   };
