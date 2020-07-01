@@ -6,6 +6,10 @@ export const AppReducer = (state, action) => {
       return {
         data: { ...state.data, regionalData: action.payload.regionalData },
       };
+    case "SET_COUNTRY":
+      return {
+        data: { ...state.data, countryData: action.payload.countryData },
+      };
     default:
       return state;
   }
