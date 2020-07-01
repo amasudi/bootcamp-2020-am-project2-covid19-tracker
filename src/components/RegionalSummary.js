@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import {
   Table,
@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import CountUp from "react-countup";
+import { GlobalContext } from "../context/GlobalContext";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -38,20 +39,18 @@ const useStyles = makeStyles({
 });
 
 export const RegionalSummary = () => {
+  function isEmpty(obj) {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) return false;
+    }
+    return true;
+  }
+  let {
+    data: { regionalData },
+  } = useContext(GlobalContext);
   const classes = useStyles();
-  const [regionalData, setRegionalData] = useState([]);
-  const [loadingData, setLoadingData] = useState(true);
-  useEffect(() => {
-    const fetchData = async () => {
-      let response = await fetch("https://disease.sh/v2/continents");
-      let data = await response.json();
-      setRegionalData(data);
-      setLoadingData(false);
-    };
-    fetchData();
-  }, []);
-  if (loadingData) {
-    return <Typography>Loading...</Typography>;
+  if (isEmpty(regionalData)) {
+    return <Typography>...Loading</Typography>;
   } else {
     return (
       <Paper elevation={3} style={{ padding: "10px", background: "#ececec" }}>

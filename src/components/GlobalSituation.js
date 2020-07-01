@@ -1,13 +1,43 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
-
+import React, { useState, useEffect, useContext } from "react";
+import { Grid, FormControl, NativeSelect } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { RegionalSummary } from "./RegionalSummary";
 import { GlobalSummary } from "./GlobalSummary";
 import { CountryWiseDetails } from "./CountryWiseDetails";
 
-import coronaLogo from "../covid-logo.png";
+import { GlobalContext } from "../context/GlobalContext";
 
+import coronaLogo from "../covid-logo.png";
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 export const GlobalSituation = () => {
+  const { country, handleActions } = useContext(GlobalContext);
+  const classes = useStyles();
+  const [regionalData, setRegionalData] = useState([]);
+  const [loadingData, setLoadingData] = useState(true);
+  const handleChange = (event) => {
+    handleChangeCountry(event.target.value);
+  };
+  let handleChangeCountry = (changedCountry) => {
+    handleActions("CHANGE_COUNTRY", { country: changedCountry });
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      let response = await fetch("https://disease.sh/v2/continents");
+      let data = await response.json();
+      handleActions("SET_REGIONAL", { regionalData: data });
+      setRegionalData(data);
+      setLoadingData(false);
+    };
+    fetchData();
+  }, []);
   return (
     <div style={{ margin: "25px" }}>
       <Grid container spacing={2}>
@@ -22,6 +52,22 @@ export const GlobalSituation = () => {
               maxWidth: "90%",
             }}
           />
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl xs={12} className={classes.formControl}>
+            <NativeSelect xs={12} value={country} onChange={handleChange}>
+              <option value="">---Select Country---</option>
+              {regionalData.map((row, ind) => (
+                <optgroup label={row.continent} key={ind}>
+                  {row.countries.map((countryVal, i) => (
+                    <option value={countryVal} key={i}>
+                      {countryVal}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </NativeSelect>
+          </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
           <GlobalSummary />

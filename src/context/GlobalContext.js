@@ -3,7 +3,11 @@ import React, { createContext, useReducer } from "react";
 import { AppReducer } from "./AppReducer";
 
 let initialState = {
-  country: "",
+  data: {
+    country: "",
+    regionalData: {},
+    countryData: {},
+  },
 };
 
 export const GlobalContext = createContext(initialState);
@@ -19,12 +23,23 @@ export const GlobalProvider = ({ children }) => {
           payload: { country: transObj.country },
         });
         break;
+      case "SET_REGIONAL":
+        dispatch({
+          type: type,
+          payload: { regionalData: transObj.regionalData },
+        });
+        break;
+      case "SET_COUNTRY":
+        dispatch({
+          type: type,
+          payload: { countryData: transObj.countryData },
+        });
       default:
     }
   };
 
   return (
-    <GlobalContext.Provider value={{ country: state.country, handleActions }}>
+    <GlobalContext.Provider value={{ data: state.data, handleActions }}>
       {children}
     </GlobalContext.Provider>
   );

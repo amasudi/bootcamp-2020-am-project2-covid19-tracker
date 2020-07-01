@@ -2,7 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { Typography } from "@material-ui/core";
 import { GlobalContext } from "../context/GlobalContext";
 export const CountryFlag = () => {
-  let { country } = useContext(GlobalContext);
+  let {
+    data: { country },
+  } = useContext(GlobalContext);
   const [isLoading, setLoading] = useState(false);
   const [flagImg, setFlagImg] = useState(null);
   useEffect(() => {
