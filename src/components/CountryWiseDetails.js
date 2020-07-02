@@ -18,7 +18,6 @@ export const CountryWiseDetails = () => {
   if (country === "") {
     return null;
   } else {
-    console.log(countryData);
     return (
       <Paper elevation={3} style={{ padding: "10px", background: "#ececec" }}>
         <Grid container spacing={2}>
