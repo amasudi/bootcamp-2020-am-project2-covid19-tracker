@@ -3,6 +3,7 @@ import { Paper, Card, Grid, Typography } from "@material-ui/core";
 import CountUp from "react-countup";
 import { CountryFlag } from "./CountryFlag";
 import { GlobalContext } from "../context/GlobalContext";
+import { Bar } from "react-chartjs-2";
 
 export const CountryWiseDetails = () => {
   function isEmpty(obj) {
@@ -374,7 +375,64 @@ export const CountryWiseDetails = () => {
               </Grid>
             )}
           </Grid>
-          <Grid item xs={12}></Grid>
+          <Grid item xs={12} sm={6}>
+            <Bar
+              data={{
+                labels: ["Infected", "Recovered", "Deaths"],
+                datasets: [
+                  {
+                    label: "People",
+                    backgroundColor: [
+                      "rgba(0,0,255,0.5)",
+                      "rgba(0,255,0,0.5)",
+                      "rgba(255,0,0,0.5)",
+                    ],
+                    data: [
+                      countryData.cases,
+                      countryData.recovered,
+                      countryData.deaths,
+                    ],
+                  },
+                ],
+              }}
+              options={{
+                legend: { display: false },
+                title: {
+                  display: true,
+                  text: `Current state in ${countryData.country}`,
+                },
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Bar
+              data={{
+                labels: ["Infected", "Recovered", "Deaths"],
+                datasets: [
+                  {
+                    label: "People",
+                    backgroundColor: [
+                      "rgba(0,0,255,0.5)",
+                      "rgba(0,255,0,0.5)",
+                      "rgba(255,0,0,0.5)",
+                    ],
+                    data: [
+                      countryData.todayCases,
+                      countryData.todayRecovered,
+                      countryData.todayDeaths,
+                    ],
+                  },
+                ],
+              }}
+              options={{
+                legend: { display: false },
+                title: {
+                  display: true,
+                  text: `Today's position in ${countryData.country}`,
+                },
+              }}
+            />
+          </Grid>
         </Grid>
       </Paper>
     );
