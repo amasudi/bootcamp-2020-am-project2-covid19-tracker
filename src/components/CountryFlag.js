@@ -20,7 +20,13 @@ export const CountryFlag = () => {
         );
         let data = await response.json();
         handleActions("SET_COUNTRY", { countryData: data });
-        setFlagImg(<img alt={country} src={data.countryInfo.flag} />);
+        setFlagImg(
+          <img
+            alt={country}
+            src={data.countryInfo.flag}
+            style={{ width: "100%" }}
+          />
+        );
         setLoading(false);
       };
       fetchData(data.country);
