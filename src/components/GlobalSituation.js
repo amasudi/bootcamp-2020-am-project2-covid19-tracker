@@ -34,14 +34,15 @@ export const GlobalSituation = () => {
     handleActions("CHANGE_COUNTRY", { country: changedCountry });
   };
   useEffect(() => {
-    const fetchData = async () => {
-      let response = await fetch("https://disease.sh/v2/continents");
-      let data = await response.json();
-      handleActions("SET_REGIONAL", { regionalData: data });
-      //setRegionalData(data);
-    };
-    fetchData();
-  }, [handleActions]);
+    if (isEmpty(data.regionalData)) {
+      const fetchData = async () => {
+        let response = await fetch("https://disease.sh/v2/continents");
+        let data = await response.json();
+        handleActions("SET_REGIONAL", { regionalData: data });
+      };
+      fetchData();
+    }
+  }, [data, handleActions]);
   if (isEmpty(data.regionalData)) {
     return <Typography>...Loading</Typography>;
   } else {
