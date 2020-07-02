@@ -8,16 +8,16 @@ export const CountryFlag = () => {
   useEffect(() => {
     if (data.country !== "") {
       setLoading(true);
-      const fetchData = async () => {
+      const fetchData = async (country) => {
         let response = await fetch(
-          `https://disease.sh/v2/countries/${data.country}`
+          `https://disease.sh/v2/countries/${country}`
         );
         let data = await response.json();
         handleActions("SET_COUNTRY", { countryData: data });
-        setFlagImg(<img alt={data.country} src={data.countryInfo.flag} />);
+        setFlagImg(<img alt={country} src={data.countryInfo.flag} />);
         setLoading(false);
       };
-      fetchData();
+      fetchData(data.country);
     }
   }, [data, handleActions]);
   if (data.country === "") {
