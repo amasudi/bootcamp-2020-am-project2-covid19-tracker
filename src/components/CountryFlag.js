@@ -2,26 +2,25 @@ import React, { useState, useEffect, useContext } from "react";
 import { Typography } from "@material-ui/core";
 import { GlobalContext } from "../context/GlobalContext";
 export const CountryFlag = () => {
-  let {
-    data: { country },
-  } = useContext(GlobalContext);
+  let { data, handleActions } = useContext(GlobalContext);
   const [isLoading, setLoading] = useState(false);
   const [flagImg, setFlagImg] = useState(null);
   useEffect(() => {
-    if (country !== "") {
+    if (data.country !== "") {
       setLoading(true);
       const fetchData = async () => {
         let response = await fetch(
-          `https://disease.sh/v2/countries/${country}`
+          `https://disease.sh/v2/countries/${data.country}`
         );
         let data = await response.json();
-        setFlagImg(<img alt={country} src={data.countryInfo.flag} />);
+        handleActions("SET_COUNTRY", { countryData: data });
+        setFlagImg(<img alt={data.country} src={data.countryInfo.flag} />);
         setLoading(false);
       };
       fetchData();
     }
-  }, [country]);
-  if (country === "") {
+  }, [data, handleActions]);
+  if (data.country === "") {
     return null;
   } else if (isLoading) {
     return <Typography>...Loading</Typography>;
