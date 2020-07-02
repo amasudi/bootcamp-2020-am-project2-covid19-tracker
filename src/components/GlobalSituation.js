@@ -31,6 +31,7 @@ export const GlobalSituation = () => {
     handleChangeCountry(event.target.value);
   };
   let handleChangeCountry = (changedCountry) => {
+    handleActions("SET_COUNTRY", { countryData: {} });
     handleActions("CHANGE_COUNTRY", { country: changedCountry });
   };
   useEffect(() => {
