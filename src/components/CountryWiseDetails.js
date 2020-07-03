@@ -56,7 +56,7 @@ export const CountryWiseDetails = () => {
                     {new Date(countryData.updated).toString()}
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -77,7 +77,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -98,7 +98,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -119,7 +119,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -140,7 +140,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -161,7 +161,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -182,7 +182,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -203,7 +203,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -224,7 +224,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -245,7 +245,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -266,7 +266,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
@@ -287,7 +287,7 @@ export const CountryWiseDetails = () => {
                     </Typography>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={6} sm={2}>
                   <Card
                     style={{
                       color: "white",
